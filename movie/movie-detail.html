@@ -1,0 +1,44 @@
+ <div class="container-fluid">
+        <div class="jumbotron">
+            <div class="media">
+                <div class="media-left">
+                    <img class="img-thumbnail media-object" ng-src="{{movie.images.large}}" alt="">
+                </div>
+
+                <div class="media-body">
+                    <h1>{{movie.title}}</h1>
+
+                    <table class="table">
+                        <tr>
+                            <td>
+                                <b>导演</b>
+                                <span class="label label-success"
+                                      ng-repeat="director in movie.directors">{{director.name}}</span>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>类型</b>
+                                <span class="label label-success"
+                                ng-repeat="genre in movie.genres"
+                                >{{genre}}</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <b>上映年份</b>
+                                <span class="label label-success">{{movie.year}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <p>剧情:{{movie.summary}}</p>
+                </div>
+
+            </div>
+
+        </div>
+        <div>
+            <h3>评论列表</h3>
+        </div>
+    </div>

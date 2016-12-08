@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>豆瓣电影</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="app.css">
+
+</head>
+<body ng-app="app">
+
+<!--
+    (1)分析
+        技术:
+            前端:
+            bootstrap
+            angular
+            js
+            jQuery
+            css
+            html
+            json
+            后台:
+            豆瓣电影api
+            https://www.api.douban.com/v2/movie/
+        界面:
+            主体
+
+                导      航    栏
+                菜    内
+                单
+                栏         容
+                搜索
+
+            内容
+                电影列表
+                    正在热映
+                    即将上映
+                    top250
+                        第一部分 分栏标题
+                        第二部分 列表
+                            图片 电影名称                评分
+                                导演
+                                类型
+                        第三部分 条数 上下页控制
+
+                电影详情
+
+              第一部分  大图片 标题
+                             导演
+                             类型
+                             上映时间
+                       剧情
+              第二部分  评论列表
+
+          文件系统
+            html
+                主界面 index.html
+                内容 movieList 电影列表 movieDetail 电影详情
+            css
+                app.css
+            js
+                movieList movieDetail
+            库&框架
+                angular(自带bs 和 jQuery)
+
+          开发流程
+              1、界面
+              2、配置angular指令
+              3、逻辑操作
+ -->
+
+<!--
+    导入库
+    主界面的html配置
+ -->
+
+<!-- 1、导航栏 -->
+
+    <div class="nav navbar-inverse navbar-fixed-top">
+
+        <!-- 标题 -->
+        <a href="#" class="navbar-brand">豆瓣电影</a>
+        <!-- 右边内容 -->
+
+        <div class="navbar-header">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- ###标题绑定 navTitle -->
+                    <li><a href="">{{navTitle}}</a> </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+<!-- 2、内容 -->
+    <div class="container-fluid">
+        <!-- 1.1 左边的菜单 -->
+            <div class="row">
+                <div class="col-sm-3 col-md-2 siderbar hidden-xs">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="#/list/in_theaters" select-link>正在上映</a></li>
+                            <li><a href="#/list/coming_soon" select-link>即将上映</a></li>
+                            <li><a href="#/list/top250" select-link>TOP250</a></li>
+                        </ul>
+
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="输入搜索的电影">
+                            <span class="input-group-addon">
+                                🔍搜索
+                            </span>
+                        </div>
+                </div>
+            </div>
+
+        <!-- 1.2 右边的内容 -->
+        <!-- view的挂载点 -->
+            <div class="col-sm-9 col-md-10 col-sm-offset-3 col-md-offset-2 main" ng-view>右边</div>
+    </div>
+
+
+<!--<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>-->
+<script src="libs/angular/angular.min.js"></script>
+<script src="libs/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+<script src="libs/angular-route/angular-route.min.js"></script>
+
+<script src="app.js"></script>
+<script src="movie/movie-list.js"></script>
+<script src="movie/movie-detail.js"></script>
+
+</body>
+</html>
+
+<!--
+    分析:
+
+    界面配置: bootstrap
+
+    模块导入: 各种依赖的模块
+       三种:
+       (1) 不设定独立模块
+       (2) 设定独立模块 独立模块的名字 需要进行声明
+       (3) 主模块名.模块的html名字
+
+    界面的指令配置
+    控制器里 数据请求 数据解析 配置到界面
+
+    把天气预报改成功能性的
+    生活服务类
+       天气预报
+       新闻
+       读书
+       菜谱
+       股票
+
+    独立的类项目
+       微信
+       微博
+       支付宝
+ -->

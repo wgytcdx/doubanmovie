@@ -1,0 +1,29 @@
+/*
+    配置一些bs没有提供的css样式
+*/
+
+
+body {
+    padding-top: 50px;
+}
+
+.main {
+    padding: 20px;
+}
+
+.siderbar{
+    padding: 5px;
+    padding-top: 20px;
+    height: 100%;
+    position: fixed;
+    background-color: #f5f5f5;
+    border-right: 1px solid #eee;
+    z-index: 1000;
+    /*overflow-x: hidden;*/
+    /*overflow-y: auto;*/
+}
+
+.page-header{
+    margin-top: 10px;
+}
+
